@@ -1,0 +1,4 @@
+.env
+config/
+models/index.js
+node_modules/
