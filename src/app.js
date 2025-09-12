@@ -1,20 +1,12 @@
-// const express = require('express');
 import express from "express";
 const app = express();
 import { config } from "dotenv";
 config();
+import routes from "./routes/user.routes.js";
+const userRoutes = routes;
 
-const userRoutes = require("./routes/user.routes");
-
-//
+//Para identificar los datos que pasan.
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-/*
-app.get("/", (req, res) => {
-  res.send("Holaaa mundo!");
-});
-*/
 
 //Ruta de los procesos sobre Usuarios:
 app.use("/usuarios", userRoutes);
