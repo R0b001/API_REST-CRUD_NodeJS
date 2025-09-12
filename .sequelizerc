@@ -1,3 +1,7 @@
+/*
+  Al igual que .env, es un archivo externo de configuración.
+  Pero para identificar las rutas de los archivos de sequelize-cli.
+*/
 const path = require("path");
 
 module.exports = {
