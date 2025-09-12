@@ -44,4 +44,4 @@ Para verificar que funciona puedes hacerlo de dos formas, utilizando la URL: *ht
  - Inicias Postman y en la operación GET en la barra escribes la url.
  - Entras a una pestaña web y escribiendo la misma url.
 
-Nota: **PORT**, es el puesto que agregaras en el archivo .env, solo lo remplazas.
+Nota: **PORT**, es el puerto que utilizaras y que puedes editar en el archivo .env, solo lo remplazas.
