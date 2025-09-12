@@ -4,11 +4,11 @@ const app = express();
 import { config } from "dotenv";
 config();
 
-const userRoutes = require("./routes/user.routes");
-
+import routes from "./routes/user.routes.js";
+const userRoutes = routes;
 //
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 /*
 app.get("/", (req, res) => {
