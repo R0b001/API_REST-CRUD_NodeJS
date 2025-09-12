@@ -45,3 +45,16 @@ Para verificar que funciona puedes hacerlo de dos formas, utilizando la URL: *ht
  - Entras a una pestaña web y escribiendo la misma url.
 
 Nota: **PORT**, es el puerto que utilizaras y que puedes editar en el archivo .env, solo lo remplazas.
+
+Para utilizarlo:
+
+ - En Postman:
+ Para realizar las operaciones HTTP, debes cambiar en la barra de opciones que operación harás y en la parte inferior debes aplicar las operaciones:
+	 - **GET**
+Ver todos los usuarios o también solo uno.
+		 - Solo escribes la URL y has click en send.
+		 - Pero para hacerlo por id, debes escribir en la dirección después del **/**, pondras **:id**.
+	 Cuando suceda en la parte inferior de la barra estará el campo id y colocaras el id, empezando desde el 1 hasta N.
+	 - **POST**
+Crear o guardar un nuevo Usuario.
+		 - En la parte inferior de la barra selecciones **Body**, abajo del mismo seleccionas **raw**
