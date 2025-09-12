@@ -63,6 +63,6 @@ Crear o guardar un nuevo Usuario.
 	 - **PATCH**
 		 - Puedes actualizar todos o un solo campo de un usuario.
 		 - Es hacer el mismo proceso de **POST**, pero la diferencia será que agregaras el Id del usuario en la URL después del **/**.
-- **DELETE**
+	- **DELETE**
 Puedes eliminar a un usuario.
 		 - Solo agregas el Id del usuario en la URL para eliminarlo.
