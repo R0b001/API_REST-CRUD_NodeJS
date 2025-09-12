@@ -58,3 +58,11 @@ Ver todos los usuarios o también solo uno.
 	 - **POST**
 Crear o guardar un nuevo Usuario.
 		 - En la parte inferior de la barra selecciones **Body**, abajo del mismo seleccionas **raw**
+		 - En el cuadro blanco debajo, abrirás con ***{}***, para escribir los parámetros es con **"completeName":"Nombre"** y así con los demás.
+		 - Cuando termines, le das click y se guardara el usuario.
+	 - **PATCH**
+		 - Puedes actualizar todos o un solo campo de un usuario.
+		 - Es hacer el mismo proceso de **POST**, pero la diferencia será que agregaras el Id del usuario en la URL después del **/**.
+- **DELETE**
+Puedes eliminar a un usuario.
+		 - Solo agregas el Id del usuario en la URL para eliminarlo.
