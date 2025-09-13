@@ -1,92 +1,27 @@
 import express from "express";
 const routes = express.Router();
-import db from "../models/index.js";
-const { Users } = db;
+//Rutas de los controladores:
 import getUser from "../middleware/getUser.middleware.js";
+import usersGet from "../controllers/getUsers.controller.js";
+import userGet from "../controllers/getUser.controller.js";
+import postUser from "../controllers/postUser.controller.js";
+import patchUser from "../controllers/patchUser.controller.js";
+import deleteUser from "../controllers/deleteUser.controller.js";
 
 //Rutas de las operaciones del CRUD Users:
 //Mostrar todos los usuarios:
-routes.get("/", async (req, res) => {
-  try {
-    const getUsers = await Users.findAll();
-    console.log("GET ALL,", getUsers);
-
-    if (getUsers.length === 0) {
-      return res.status(204).json([]);
-    }
-
-    res.json(getUsers);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
+routes.get("/", usersGet);
 
 //Mostrar un usuario:
-routes.get("/:id", getUser, async (req, res) => {
-  res.json(res.user);
-});
+routes.get("/:id", getUser, userGet);
 
 //Crear un usuario:
-routes.post("/", async (req, res) => {
-  const { completeName, email, password, typeRol } = req?.body;
-
-  if (!completeName || !email || !password || !typeRol) {
-    return res.status(400).json({
-      message: "Todos los campos deben estar llenos.",
-    });
-  }
-
-  try {
-    const newUser = await Users.create({
-      completeName,
-      email,
-      password,
-      typeRol,
-    });
-
-    res.status(201).json(newUser);
-  } catch (error) {
-    res.status(400).json({
-      message: error.message,
-    });
-  }
-});
+routes.post("/", postUser);
 
 //Actualizar parcialmente un usuario:
-routes.patch("/:id", getUser, async (req, res) => {
-  if (Object.keys(req.body).length === 0) {
-    return res.status(400).json({
-      message: "Al menos UN campo debe ser actualizado.",
-    });
-  }
-
-  try {
-    const userUpdate = res.user;
-    await userUpdate.update(req.body);
-    res.status(200).json(userUpdate);
-  } catch (error) {
-    res.status(400).json({
-      message: error.message,
-    });
-  }
-});
+routes.patch("/:id", getUser, patchUser);
 
 //Eliminar un usuario:
-routes.delete("/:id", getUser, async (req, res) => {
-  try {
-    const userDelete = res.user;
-    await userDelete.destroy();
-    res.status(200).json({
-      message: "Usuario " + userDelete.completeName + " eliminado.",
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: "Ocurrió un error al intentar eliminar al usuario.",
-      error: error.message,
-    });
-  }
-});
+routes.delete("/:id", getUser, deleteUser);
 
 export default routes;
